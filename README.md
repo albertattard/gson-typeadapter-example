@@ -175,7 +175,7 @@ The `JsonWriter` method provides specific methods that can be used to construct 
       "authors": "Joshua Bloch;Neal Gafter"
     ```
 
-    Please note that the authors are added as a single string joined by a semi-colon using the Apache Commons Lang library ([Homepage](http://commons.apache.org/proper/commons-lang/)) class `StringUtils` ([Java Doc<](http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html)) to keep this first example as simple as possible.
+    Please note that the authors are added as a single string joined by a semi-colon using the Apache Commons Lang library ([Homepage](http://commons.apache.org/proper/commons-lang/)) class `StringUtils` ([Java Doc](http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html)) to keep this first example as simple as possible.
 
 1. Finally, we need to close the JSON object by invoking the following method.
 
@@ -489,7 +489,7 @@ This version of the `write()` method is very similar to the previous version, wi
 
     ```
     ["978-0321336781","Java Puzzlers: Traps, Pitfalls, and Corner Cases","Joshua Bloch","Neal Gafter"]
-    ``
+    ```
 
 1. Finally, when all items are added to the array, this is closed, indicating that no more elements will be added to the JSON array.
 
