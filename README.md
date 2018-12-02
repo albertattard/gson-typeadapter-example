@@ -1,10 +1,10 @@
-Java objects can be serialised to JSON strings and deserialised back using `JsonSerializer` ([Article](http://www.javacreed.com/gson-serialiser-example/) and [Java Doc](https://google.github.io/gson/apidocs/com/google/gson/JsonSerializer.html) and the `JsonDeserializer` ([Article](http://www.javacreed.com/gson-deserialiser-example/) and [Java Doc](https://google.github.io/gson/apidocs/com/google/gson/JsonDeserializer.html)) respectively.   These two classes simplify the translation between these two realms but add an extra layer which can be avoided.  Instead of the `JsonSerializer` or `JsonDeserializer` we can use an instance of `TypeAdapter` ([Java Doc](https://google.github.io/gson/apidocs/com/google/gson/TypeAdapter.html)) which can serialise and deserialise JSON objects efficiently as we will see in this article.  
+Java objects can be serialised to JSON strings and deserialised back using `JsonSerializer` ([Article](http://www.javacreed.com/gson-serialiser-example/) and [Java Doc](https://google.github.io/gson/apidocs/com/google/gson/JsonSerializer.html)) and the `JsonDeserializer` ([Article](http://www.javacreed.com/gson-deserialiser-example/) and [Java Doc](https://google.github.io/gson/apidocs/com/google/gson/JsonDeserializer.html)) respectively.   These two classes simplify the translation between these two realms but add an extra layer which can be avoided.  Instead of the `JsonSerializer` or `JsonDeserializer` we can use an instance of `TypeAdapter` ([Java Doc](https://google.github.io/gson/apidocs/com/google/gson/TypeAdapter.html)) which can serialise and deserialise JSON objects efficiently as we will see in this article.  
 
 This article assumes that the reader is already familiar with Gson and encourages the reader to read the following articles before proceeding:
 
-1. [Simple Gson Example]({{"/simple-gson-example/" | absolute_url}})
-1. [Gson Deserialiser Example]({{"/gson-deserialiser-example/" | absolute_url}})
-1. [Gson Serialiser Example]({{"/gson-serialiser-example/" | absolute_url}})
+1. [Simple Gson Example](/simple-gson-example/)
+1. [Gson Deserialiser Example](/gson-deserialiser-example/)
+1. [Gson Serialiser Example](/gson-serialiser-example/)
 
 Most of the examples will not contain the whole code and may omit fragments which are not relevant to the example being discussed. The readers can download or view all code from the above link.
 
@@ -18,7 +18,7 @@ This intermediate layer can be avoided by using the `TypeAdapter` instead of `Js
 
 > New applications should prefer TypeAdapter, whose streaming API is more efficient than this interface's tree API. ([reference](https://google.github.io/gson/apidocs/com/google/gson/JsonSerializer.html))
 
-With that said, the `JsonSerializer` and `JsonDeserializer` provide a safety cushion which is very convenient as it mitigates the risk of producing invalid JSON strings.  The image shown above shows how objects are serialised using the `JsonSerializer`.   The Java objects are converted to `JsonElement`s first, and then converted to JSON string.  This process creates a set of temporary objects which are then converted to JSON string.   These objects are converted to JSON string using an internal implementation of the `TypeAdapter`.   The `TypeAdapter` can take any Java object (including objects of type `JsonElement`) and converts it to JSON string as shown in the following image.
+With that said, the `JsonSerializer` and `JsonDeserializer` provide a safety cushion which is very convenient as it mitigates the risk of producing invalid JSON strings.  The image shown above shows how objects are serialised using the `JsonSerializer`.  The Java objects are converted to `JsonElement`s first, and then converted to JSON string.  This process creates a set of temporary objects which are then converted to JSON string.   These objects are converted to JSON string using an internal implementation of the `TypeAdapter`.   The `TypeAdapter` can take any Java object (including objects of type `JsonElement`) and converts it to JSON string as shown in the following image.
 
 ![Skipping Intermediate Later](img/Skipping-Intermediate-Later.png)
 
