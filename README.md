@@ -16,7 +16,7 @@ The `JsonSerializer` and `JsonDeserializer` classes makes use of  an intermediat
 
 This intermediate layer can be avoided by using the `TypeAdapter` instead of `JsonSerializer` or `JsonDeserializer`.  The `TypeAdapter` is more efficient than the  `JsonSerializer` and `JsonDeserializer` as it skips the intermediate layer.  This fact is also documented in the class Java Doc.
 
-> New applications should prefer TypeAdapter, whose streaming API is more efficient than this interface's tree API. ([reference](https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonSerializer.html))
+> New applications should prefer TypeAdapter, whose streaming API is more efficient than this interface's tree API. ([reference](https://google.github.io/gson/apidocs/com/google/gson/JsonSerializer.html))
 
 With that said, the `JsonSerializer` and `JsonDeserializer` provide a safety cushion which is very convenient as it mitigates the risk of producing invalid JSON strings.  The image shown above shows how objects are serialised using the `JsonSerializer`.   The Java objects are converted to `JsonElement`s first, and then converted to JSON string.  This process creates a set of temporary objects which are then converted to JSON string.   These objects are converted to JSON string using an internal implementation of the `TypeAdapter`.   The `TypeAdapter` can take any Java object (including objects of type `JsonElement`) and converts it to JSON string as shown in the following image.
 
